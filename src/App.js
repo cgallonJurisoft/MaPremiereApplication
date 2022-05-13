@@ -14,6 +14,7 @@ import {
   useColorScheme
 } from 'react-native'
 import { AuthProvider } from './contexts/AuthContext'
+import { CartProvider } from './contexts/CartContext'
 
 // import Clock from './components/Clock';
 // import ClockFunction from './components/ClockFunction'
@@ -26,13 +27,15 @@ const App = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <AuthProvider>
-        <NavigationContainer>
-          {/* <ClockFunction interval={1000} />
-          <ClockFunction interval={3000} />
-          <ClockFunction interval={5000} />
-          <ClockFunction interval={10000} /> */}
-          <MainNavigation />
-        </NavigationContainer>
+        <CartProvider>
+          <NavigationContainer>
+            {/* <ClockFunction interval={1000} />
+            <ClockFunction interval={3000} />
+            <ClockFunction interval={5000} />
+            <ClockFunction interval={10000} /> */}
+            <MainNavigation />
+          </NavigationContainer>
+        </CartProvider>
       </AuthProvider>
     </SafeAreaView>
   )

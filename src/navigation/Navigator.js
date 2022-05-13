@@ -10,8 +10,9 @@ import LoginScreen from '../screens/LoginScreen'
 import RegisterScreen from '../screens/RegisterScreen'
 import { useAuth } from '../contexts/AuthContext'
 import LoadingScreen from '../screens/LoadingScreen'
+import CartScreen from '../screens/CartScreen'
 import CounterScreen from '../screens/CounterScreen'
-
+import { useCart } from '../contexts/CartContext'
 // On instancie le navigation empilée
 const AuthNavigator = createNativeStackNavigator()
 
@@ -57,6 +58,8 @@ const RestaurantsNavigation = () => {
 
 // On créé notre navigateur avec nos écrans
 const MainNavigation = () => {
+  const { state } = useCart()
+
   return (
     <TabNavigator.Navigator
       initialRouteName='Restaurants'
@@ -76,6 +79,9 @@ const MainNavigation = () => {
             default:
               break
           }
+          if (route.name.startsWith('Panier')) {
+            iconName = focused ? 'cart' : 'cart-outline'
+          }
           return <Icon name={iconName} size={size} color={color} />
         },
         tabBarActiveTintColor: '#0bc',
@@ -84,12 +90,13 @@ const MainNavigation = () => {
     >
       <TabNavigator.Group>
         <TabNavigator.Screen name='Home' component={HomeScreen} />
+        <TabNavigator.Screen name='Counter' component={CounterScreen} />
         <TabNavigator.Screen
           options={{ headerShown: false }}
           name='Restaurants'
           component={RestaurantsNavigation}
         />
-        <TabNavigator.Screen name='Counter' component={CounterScreen} />
+        <TabNavigator.Screen name={`Panier (${state.cartContent.length})`} component={CartScreen} />
       </TabNavigator.Group>
     </TabNavigator.Navigator>
   )

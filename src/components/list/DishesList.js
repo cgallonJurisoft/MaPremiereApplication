@@ -1,7 +1,9 @@
 import React from 'react'
-import { View, ScrollView, Text, Image, SafeAreaView, FlatList } from 'react-native'
+import { View, Text, Image, SafeAreaView, FlatList } from 'react-native'
+import Button from '../Button'
 import styles from '../styles/ListStyles'
 import globalStyles from '../../theme/Styles'
+import { actionTypes, useCart } from '../../contexts/CartContext'
 
 const IMAGE_URL = 'https://strapi.myidea.fr'
 
@@ -13,6 +15,17 @@ const categoriesTrad = {
 }
 
 const DishItem = ({ item }) => {
+  const { dispatch } = useCart()
+
+  const handleAddToCart = (item) => {
+    // Appel de la méthode dispatch pour mettre à jour l'état global
+    // On y ajoute le type d'action désiré
+    dispatch({
+      type: actionTypes.ADDTOCART,
+      data: { item }
+    })
+  }
+
   return (
     <View style={styles.smallCard}>
       {item.photos[0] && (
@@ -26,6 +39,7 @@ const DishItem = ({ item }) => {
       <View style={styles.containerPrice}>
         <Text style={styles.containedPrice}>{item.price.toFixed(2)} €</Text>
       </View>
+      <Button title='Ajouter au panier' onPress={() => handleAddToCart(item)} />
     </View>
   )
 }
