@@ -7,7 +7,7 @@ const CustomButton = (props) => {
   return (
     <Pressable
       onPress={onPress}
-      style={{ ...styles.button, backgroundColor: color }}
+      style={{ ...styles.button, ...props.style, backgroundColor: color }}
       android_ripple={{ color: 'lightgrey' }}
     >
       <Text style={styles.text}>{title}</Text>

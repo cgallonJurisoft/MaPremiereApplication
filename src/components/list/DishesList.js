@@ -15,16 +15,32 @@ const categoriesTrad = {
 }
 
 const DishItem = ({ item }) => {
-  const { dispatch } = useCart()
+  const { state, dispatch } = useCart()
 
   const handleAddToCart = (item) => {
     // Appel de la méthode dispatch pour mettre à jour l'état global
     // On y ajoute le type d'action désiré
     dispatch({
       type: actionTypes.ADDTOCART,
-      data: { item }
+      data: {
+        id: item._id,
+        nom: item.nom,
+        quantite: 1
+      }
     })
   }
+
+  // const handleChangeQuantity = (item, PlusOrMinus) => {
+  //   // Appel de la méthode dispatch pour mettre à jour l'état global
+  //   // On y ajoute le type d'action désiré
+  //   dispatch({
+  //     type: actionTypes.CHANGEQUANTITY,
+  //     data: {
+  //       id: item._id,
+  //       quantite: 1 + PlusOrMinus
+  //     }
+  //   })
+  // }
 
   return (
     <View style={styles.smallCard}>
@@ -39,7 +55,17 @@ const DishItem = ({ item }) => {
       <View style={styles.containerPrice}>
         <Text style={styles.containedPrice}>{item.price.toFixed(2)} €</Text>
       </View>
-      <Button title='Ajouter au panier' onPress={() => handleAddToCart(item)} />
+      {
+        state.cartContent.filter((i) => i.id === item._id).length < 1
+          ? <Button title='Ajouter au panier' onPress={() => handleAddToCart(item)} />
+          : (
+            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+              <Button color='crimson' title='-' style={{ marginRight: 15 }} />
+              <Button title='+' />
+            </View>
+            )
+      }
+
     </View>
   )
 }

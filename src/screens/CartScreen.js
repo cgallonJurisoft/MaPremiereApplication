@@ -10,7 +10,8 @@ const CartItem = ({ item }) => {
   return (
     <View style={styles.smallCard}>
       {/* <Text>{JSON.stringify(item, null, 2)}</Text> */}
-      <Text>{item.item.nom}</Text>
+      <Text>{item.nom}</Text>
+      <Text>x {item.quantite}</Text>
     </View>
   )
 }

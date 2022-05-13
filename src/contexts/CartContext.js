@@ -4,7 +4,6 @@ const CartContext = createContext()
 
 const actionTypes = {
   ADDTOCART: 'ADDTOCART',
-  REMOVEFROMCART: 'REMOVEFROMCART',
   EMPTYCART: 'EMPTYCART'
 }
 
