@@ -3,7 +3,9 @@ import React, { createContext, useContext } from 'react'
 const CartContext = createContext()
 
 const actionTypes = {
-  ADDTOCART: 'ADDTOCART'
+  ADDTOCART: 'ADDTOCART',
+  REMOVEFROMCART: 'REMOVEFROMCART',
+  EMPTYCART: 'EMPTYCART'
 }
 
 const initialState = {
@@ -16,6 +18,9 @@ const CartReducer = (state, action) => {
       return {
         ...initialState, cartContent: [...state.cartContent, action.data]
       }
+    case actionTypes.EMPTYCART:
+      return initialState
+
     default: throw new Error(`Unhandled action type : ${action.type}`)
   }
 }
