@@ -21,10 +21,6 @@ const CartReducer = (state, action) => {
     case actionTypes.CHANGEQUANTITY:
       return {
         ...initialState,
-        // cartContent: [
-        //   ...state.cartContent.filter((i) => i.id !== action.data.id),
-        //   ...state.cartContent.filter((i) => i.id === action.data.id),
-        // ]
         cartContent: [
           ...state.cartContent.filter((i) => i.id !== action.data.id),
           {
