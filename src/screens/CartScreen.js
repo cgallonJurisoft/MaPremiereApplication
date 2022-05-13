@@ -9,9 +9,9 @@ const CartItem = ({ item }) => {
 
   return (
     <View style={styles.smallCard}>
+      <Text style={{ fontSize: 18 }}>{item.nom}</Text>
+      <Text style={{ fontSize: 18, color: '#0bc' }}>x {item.quantite}</Text>
       {/* <Text>{JSON.stringify(item, null, 2)}</Text> */}
-      <Text>{item.nom}</Text>
-      <Text>x {item.quantite}</Text>
     </View>
   )
 }

@@ -4,6 +4,7 @@ const CartContext = createContext()
 
 const actionTypes = {
   ADDTOCART: 'ADDTOCART',
+  CHANGEQUANTITY: 'CHANGEQUANTITY',
   EMPTYCART: 'EMPTYCART'
 }
 
@@ -16,6 +17,22 @@ const CartReducer = (state, action) => {
     case actionTypes.ADDTOCART:
       return {
         ...initialState, cartContent: [...state.cartContent, action.data]
+      }
+    case actionTypes.CHANGEQUANTITY:
+      return {
+        ...initialState,
+        // cartContent: [
+        //   ...state.cartContent.filter((i) => i.id !== action.data.id),
+        //   ...state.cartContent.filter((i) => i.id === action.data.id),
+        // ]
+        cartContent: [
+          ...state.cartContent.filter((i) => i.id !== action.data.id),
+          {
+            id: action.data.id,
+            nom: state.cartContent.find((i) => i.id === action.data.id).nom,
+            quantite: state.cartContent.find((i) => i.id === action.data.id).quantite + action.data.howMuch
+          }
+        ]
       }
     case actionTypes.EMPTYCART:
       return initialState

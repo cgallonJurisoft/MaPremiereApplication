@@ -30,17 +30,17 @@ const DishItem = ({ item }) => {
     })
   }
 
-  // const handleChangeQuantity = (item, PlusOrMinus) => {
-  //   // Appel de la méthode dispatch pour mettre à jour l'état global
-  //   // On y ajoute le type d'action désiré
-  //   dispatch({
-  //     type: actionTypes.CHANGEQUANTITY,
-  //     data: {
-  //       id: item._id,
-  //       quantite: 1 + PlusOrMinus
-  //     }
-  //   })
-  // }
+  const handleChangeQuantity = (item, howMuch) => {
+    // Appel de la méthode dispatch pour mettre à jour l'état global
+    // On y ajoute le type d'action désiré
+    dispatch({
+      type: actionTypes.CHANGEQUANTITY,
+      data: {
+        id: item._id,
+        howMuch
+      }
+    })
+  }
 
   return (
     <View style={styles.smallCard}>
@@ -60,8 +60,8 @@ const DishItem = ({ item }) => {
           ? <Button title='Ajouter au panier' onPress={() => handleAddToCart(item)} />
           : (
             <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-              <Button color='crimson' title='-' style={{ marginRight: 15 }} />
-              <Button title='+' />
+              <Button onPress={() => handleChangeQuantity(item, -1)} color='crimson' title='-' style={{ marginRight: 15 }} />
+              <Button onPress={() => handleChangeQuantity(item, +1)} title='+' />
             </View>
             )
       }
