@@ -4,10 +4,16 @@ https://link.getmailspring.com/link/169DCFAC-BB5D-4AA5-8C30-02DDFB0952B7@getmail
 GitHub formateur :
 https://github.com/RiusmaX/eni-rennes-react-native
 
+Doc. Getting started React : 
+https://fr.reactjs.org/docs/getting-started.html
+
+Doc. Getting started React Native : 
+https://reactnative.dev/docs/getting-started
+
 Icones :
 https://oblador.github.io/react-native-vector-icons/
 
-Gnérer icone appli : 
+Générer icone appli : 
 https://icon.kitchen/
 
 Appels API :
@@ -24,3 +30,9 @@ https://documentation.onesignal.com/docs/react-native-sdk-setup
 
 FireBase : 
 https://console.firebase.google.com/project/eni-formation/settings/cloudmessaging
+
+Doc. FireBase : 
+https://firebase.google.com/docs
+
+Awesome-React-Native : 
+https://github.com/jondot/awesome-react-native#readme
