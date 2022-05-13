@@ -1,25 +1,34 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView, FlatList } from 'react-native'
 import { useCart } from '../contexts/CartContext'
-import globalStyles from '../theme/Styles'
+import styles from '../components/styles/ListStyles'
 
-const CartView = () => {
+const CartItem = ({ item }) => {
   // On récupère la valeur de notre état global
-  const { state } = useCart()
 
   return (
-    <View>
-      <Text style={{ textAlign: 'center', fontSize: 18, marginBottom: 20 }}>Panier :</Text>
-      <Text>{JSON.stringify(state.cartContent)}</Text>
+    <View style={styles.smallCard}>
+      {/* <Text>{JSON.stringify(item, null, 2)}</Text> */}
+      <Text>{item.item.nom}</Text>
     </View>
   )
 }
 
 const CartScreen = () => {
+  const { state } = useCart()
+
   return (
-    <View style={globalStyles.container}>
-      <CartView />
-    </View>
+  // <View style={globalStyles.container}>
+    <SafeAreaView>
+      {state.cartContent &&
+        <FlatList
+          style={{ paddingVertical: 30 }}
+          data={state.cartContent}
+          keyExtractor={item => item._id}
+          renderItem={({ item }) => <CartItem item={item} />}
+        />}
+    </SafeAreaView>
+  // </View>
   )
 }
 
