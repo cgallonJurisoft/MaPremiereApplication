@@ -1,0 +1,26 @@
+Support de cours:
+https://link.getmailspring.com/link/169DCFAC-BB5D-4AA5-8C30-02DDFB0952B7@getmailspring.com/0?redirect=https%3A%2F%2Fdrive.infomaniak.com%2Fapp%2Fshare%2F135729%2Fff37765b-3967-4844-ae1e-43360bffb763&recipient=Yy5nYWxsb25AanVyaXNvZnQuZnI%3D
+
+GitHub formateur :
+https://github.com/RiusmaX/eni-rennes-react-native
+
+Icones :
+https://oblador.github.io/react-native-vector-icons/
+
+Gnérer icone appli : 
+https://icon.kitchen/
+
+Appels API :
+https://strapi.myidea.fr/documentation#/Plat/get_plats
+
+Publishing to Google Play Store : 
+https://reactnative.dev/docs/signed-apk-android
+
+OneSignal: 
+https://app.onesignal.com/login
+
+Doc. One Signal : 
+https://documentation.onesignal.com/docs/react-native-sdk-setup
+
+FireBase : 
+https://console.firebase.google.com/project/eni-formation/settings/cloudmessaging
